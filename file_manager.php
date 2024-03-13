@@ -13,7 +13,7 @@ function file_manager()
     $ui->assign('_admin', $admin);
     $action = $routes['1'];
 
-    if ($admin['user_type'] != 'Admin' && $admin['user_type'] != 'Sales') {
+    if ($admin['user_type'] != 'Admin' && $admin['user_type'] != 'Sales' && $admin['user_type'] != 'SuperAdmin') {
         r2(U . "dashboard", 'e', $_L['Do_Not_Access']);
     }
 
