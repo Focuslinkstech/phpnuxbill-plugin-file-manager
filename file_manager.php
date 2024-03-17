@@ -13,8 +13,8 @@ function file_manager()
     $ui->assign('_admin', $admin);
     $action = $routes['1'];
 
-    if ($admin['user_type'] != 'Admin' && $admin['user_type'] != 'Sales' && $admin['user_type'] != 'SuperAdmin') {
-        r2(U . "dashboard", 'e', $_L['Do_Not_Access']);
+    if (!in_array($admin['user_type'], ['SuperAdmin', 'Admin'])) {
+        _alert(Lang::T('You do not have permission to access this page'), 'danger', "dashboard");
     }
 
     // Get the directory path from the URL parameter
